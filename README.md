@@ -16,7 +16,7 @@ Este projeto demonstra como integrar o banco de dados Oracle ao DuckDB utilizand
 ### Usando uv
 
 ```bash
-uv pip install oracledb pyarrow duckdb
+uv add oracledb pyarrow duckdb
 ```
 
 ### Usando requirements.txt
@@ -77,5 +77,6 @@ print(duckdb.sql("SELECT * FROM products"))
 - [ ] CLI para rodar queries Oracle e salvar no DuckDB
 
 ---
+
 
 **Contribuições são bem-vindas!** 🎉
