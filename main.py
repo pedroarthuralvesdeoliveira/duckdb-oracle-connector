@@ -1,4 +1,5 @@
 import duckdb
+import oracledb
 from oracle_data_loader import connect_to_oracle, load_data_to_duckdb
 
 def main():
