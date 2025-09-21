@@ -33,28 +33,13 @@ pip install -r requirements.txt
 
 ## 🚀 Como usar
 
-```python
-import oracledb
-import pyarrow
-import duckdb
+Altere a consulta na variável `sql` para se adequar ao que precisa. 
+Ajuste o nome da tabela no segundo argumento da função `load_sync_data_to_duckdb` para como preferir. 
 
-# Substitua pelas suas credenciais
-user = "SEU_USUARIO"
-password = "SUA_SENHA"
-dsn = "SEU_DSN"  # ex: "localhost/orclpdb1"
-
-# Sua query Oracle
-sql = "SELECT * FROM PRODUTOS"
-
-# Conexão com Oracle e criação da tabela no DuckDB
-with oracledb.connect(user=user, password=password, dsn=dsn) as connection:
-    for odf in connection.fetch_df_batches(statement=sql, size=4):
-        df = pyarrow.table(odf)
-        duckdb.sql("CREATE OR REPLACE TABLE products AS SELECT * FROM df")
-
-# Consulta no DuckDB
-print(duckdb.sql("SELECT * FROM products"))
+```bash
+uv run main.py
 ```
+
 
 ## 🧠 Como funciona
 
@@ -73,7 +58,7 @@ print(duckdb.sql("SELECT * FROM products"))
 ## 🛠️ Roadmap / Sugestões
 
 - [ ] Suporte para escrita no Oracle?
-- [ ] Configuração via `.env`
+- [X] Configuração via `.env`
 - [ ] CLI para rodar queries Oracle e salvar no DuckDB
 
 ---
